@@ -45,7 +45,7 @@ public class Main {
 
                 }
 
-            }else if(airPort.getPlanesInAir().size() > 0){
+            }else if(airPort.hasPlaneInAir()){
 
                 for(int id = 0; id < airPort.getPlanesInAir().size(); id++ ){
                     AirPlane airPlane = airPort.getPlanesInAir().get(id);
@@ -56,7 +56,7 @@ public class Main {
                     }
                 }
 
-            }else if(airPort.getPlanesOnGround().size() > 0){
+            }else if(airPort.hasPlaneOnGround()){
                 for(int id = 0; id < airPort.getPlanesOnGround().size(); id++ ){
                     AirPlane airPlane = airPort.getPlanesOnGround().get(id);
                     if(!airPlane.isHappy()){
@@ -70,21 +70,27 @@ public class Main {
 
         // Check delays
         int happyCounter = 0;
+        double fiveMinCounter = 0;
         for(AirPlane airPlane: airPort.getPlanesInAir()){
             if(airPlane.isHappy()){
                 happyCounter++;
+                fiveMinCounter += airPlane.getFiveMinCounter();
             }
         }
         System.out.println("Planes that landed: " + happyCounter);
+        System.out.println("Average: " + fiveMinCounter/happyCounter);
 
         happyCounter = 0;
+        fiveMinCounter = 0;
         for(AirPlane airPlane: airPort.getPlanesOnGround()){
             if(airPlane.isHappy()){
                 happyCounter++;
+                fiveMinCounter += airPlane.getFiveMinCounter();
             }
         }
 
         System.out.println("Planes that lifted: " + happyCounter);
+        System.out.println("Average: " + fiveMinCounter/happyCounter);
     }
 }
 

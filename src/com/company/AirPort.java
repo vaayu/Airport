@@ -91,4 +91,29 @@ public class AirPort {
     public void resetTimer(){
         this.timer = 0;
     }
+
+
+    public Boolean hasPlaneInAir(){
+        boolean hasPlaneInAir = false;
+        for(AirPlane airPlane: this.getPlanesInAir()){
+            if(!airPlane.isHappy()){
+                hasPlaneInAir =  true;
+                break;
+            }
+        }
+
+        return hasPlaneInAir;
+    }
+
+    public Boolean hasPlaneOnGround(){
+        boolean hasPlaneOnGround = false;
+        for(AirPlane airPlane: this.getPlanesOnGround()){
+            if(!airPlane.isHappy()){
+                hasPlaneOnGround =  true;
+                break;
+            }
+        }
+
+        return hasPlaneOnGround;
+    }
 }
