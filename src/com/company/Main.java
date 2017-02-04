@@ -25,7 +25,7 @@ public class Main {
             // Check if we currently have an airplane that is landing or taking of (landing/taking of takes 4 loops)
             // if no then,
             // check if we have any planes that want to land
-            // if no then check if we have andy airplanes that want to take of
+            // if no then check if we have any airplanes that want to take of
 
         }
 
