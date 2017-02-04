@@ -1,7 +1,4 @@
 package com.company;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 /**
@@ -12,12 +9,9 @@ public class Simulation {
     private int landingAirplane;
     private int takingOfAirplane;
 
-    private Boolean isAirportBusy;                // The landing area
-    private Boolean isLanding;
+
 
     public Simulation(int simulationYears, int landingAirplane, int takingOfAirplane){
-        this.isAirportBusy = false;               // First init , its not busy
-
         setSimulationYears(simulationYears);
         this.landingAirplane = landingAirplane;
         this.takingOfAirplane = takingOfAirplane;
