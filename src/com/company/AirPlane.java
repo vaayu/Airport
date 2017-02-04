@@ -4,13 +4,13 @@ package com.company;
  * Created by Elise on 2017-02-04.
  */
 public class AirPlane {
-    private Boolean isHappy;
+    private Boolean happy;
 
     private Boolean isInAir;
     private int fiveMinCounter;
 
-    public AirPlane(Boolean isHappy, Boolean isInAir){
-        this.isHappy = false; // Not happy because has not landed/lifted.
+    public AirPlane(Boolean happy, Boolean isInAir){
+        this.happy = happy; // Not happy because has not landed/lifted.
         this.isInAir = isInAir;
     }
 
@@ -22,12 +22,12 @@ public class AirPlane {
         return this.fiveMinCounter;
     }
 
-    public Boolean getHappy() {
-        return isHappy;
+    public Boolean isHappy() {
+        return happy;
     }
 
     public AirPlane setHappy(Boolean happy) {
-        isHappy = happy;
+        this.happy = happy;
         return this;
     }
 

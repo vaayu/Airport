@@ -10,9 +10,11 @@ public class AirPort {
     private AirPlane activeCustomer;
     private List<AirPlane> planesInAir = new ArrayList<>();
     private List<AirPlane> planesOnGround = new ArrayList<>();
+    private Boolean busy;
+    private int timer;                      // When this has the value 4 it means that the activeCustomer is done!
 
     public AirPort(){
-
+        this.busy = false;
     }
 
     public void setActiveCustomer(AirPlane airplane){
@@ -47,5 +49,39 @@ public class AirPort {
     public AirPort setPlanesOnGround(List<AirPlane> planesOnGround) {
         this.planesOnGround = planesOnGround;
         return this;
+    }
+
+    public Boolean isBusy() {
+        return busy;
+    }
+
+    public void setBusy(Boolean busy) {
+        this.busy = busy;
+    }
+
+    public void addToFiveMinCounter(){
+        for(AirPlane airplane: this.planesInAir){
+            if(!airplane.isHappy()) {
+                airplane.addToFiveMinCounter();
+            }
+        }
+
+        for(AirPlane airplane: this.planesOnGround){
+            if(!airplane.isHappy()) {
+                airplane.addToFiveMinCounter();
+            }
+        }
+    }
+
+    public void increaseTimer(){
+        this.timer++;
+    }
+
+    public int getTimer(){
+        return this.timer;
+    }
+
+    public void resetTimer(){
+        this.timer = 0;
     }
 }

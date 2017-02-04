@@ -23,12 +23,35 @@ public class Main {
                 airPort.addPlane(airPlane);
             }
 
-            // Check if we currently have an airplane that is landing or taking of (landing/taking of takes 4 loops)
-            // if no then,
-            // check if we have any planes that want to land
-            // if no then check if we have any airplanes that want to take of
+            if(airPort.isBusy()){
+                // Increase counter for planes in the queues
+                airPort.addToFiveMinCounter();              // TODO OBS! This should not affect current active customer!!!
 
+                if(airPort.getTimer() == 4){
+                    // TODO !!!! Check if you need to find the plane in the list also!
+                    // Alternative use a pointer to the object for changing the object in the list
+                    airPort.getActiveCustomer().setHappy(true);             // Mission accomplished
+                    airPort.resetTimer();
+                }else{
+                    airPort.increaseTimer();
+                }
+
+            }else if(airPort.getPlanesInAir().size() > 0){
+                for(AirPlane airPlane: airPort.getPlanesInAir()){
+                    if(!airPlane.isHappy()){
+                        airPort.setActiveCustomer(airPlane);
+                    }
+                }
+            }else if(airPort.getPlanesOnGround().size() > 0){
+                for(AirPlane airPlane: airPort.getPlanesOnGround()){
+                    if(!airPlane.isHappy()){
+                        airPort.setActiveCustomer(airPlane);
+                    }
+                }
+            }
         }
+
+        // Check delays
 
     }
 }
