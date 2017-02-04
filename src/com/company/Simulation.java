@@ -18,8 +18,8 @@ public class Simulation {
     }
 
     public void setSimulationYears(int years){
-        int hour = 12; // 60 / 5 = 12
-        int day  = hour * 24;
+        int checksPerHour = 12; // 60 / 5 = 12
+        int day  = checksPerHour * 24;
         int week = day * 7;
         int year = week * 52;
         this.simulationYears = year * years;
