@@ -7,22 +7,29 @@ import java.util.List;
  * Created by Elise on 2017-02-04.
  */
 public class AirPort {
-    private AirPlane activeCustomer;
+    private int activeCustomerId;
+    private Boolean activeCustomerInAir;
     private List<AirPlane> planesInAir = new ArrayList<>();
     private List<AirPlane> planesOnGround = new ArrayList<>();
     private Boolean busy;
     private int timer;                      // When this has the value 4 it means that the activeCustomer is done!
 
     public AirPort(){
+        this.timer = 0;
         this.busy = false;
     }
 
-    public void setActiveCustomer(AirPlane airplane){
-        this.activeCustomer = airplane;
+    public void setActiveCustomer(int id, Boolean activeCustomerInAir){
+        this.activeCustomerId = id;
+        this.activeCustomerInAir = activeCustomerInAir;
     }
 
-    public AirPlane getActiveCustomer(){
-        return this.activeCustomer;
+    public int getActiveCustomerId(){
+        return this.activeCustomerId;
+    }
+
+    public Boolean getActiveCustomerInAir(){
+        return this.activeCustomerInAir;
     }
 
     public void addPlane(AirPlane airplane){
