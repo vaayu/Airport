@@ -11,15 +11,25 @@ public class Simulation {
     private int simulationYears;
     private int landingAirplane;
     private int takingOfAirplane;
-    private List<AirPlane> landingPlanes = new ArrayList<>();
-    private List<AirPlane> takingOfPlanes = new ArrayList<>();
+
+    private Boolean isAirportBusy;                // The landing area
+    private Boolean isLanding;
 
     public Simulation(int simulationYears, int landingAirplane, int takingOfAirplane){
+        this.isAirportBusy = false;               // First init , its not busy
+
         setSimulationYears(simulationYears);
         this.landingAirplane = landingAirplane;
         this.takingOfAirplane = takingOfAirplane;
     }
 
+    public void setIsAirportBusy(Boolean isAirportbusy){
+        this.isAirportBusy = isAirportbusy;
+    }
+
+    public Boolean isAirportBusy(){
+        return this.isAirportBusy;
+    }
 
     public void setSimulationYears(int years){
         int hour = 12; // 60 / 5 = 12
@@ -60,31 +70,5 @@ public class Simulation {
         return this;
     }
 
-    public List<AirPlane> getLandingPlanes() {
-        return landingPlanes;
-    }
 
-    public Simulation setLandingPlanes(List<AirPlane> landingPlanes) {
-        this.landingPlanes = landingPlanes;
-        return this;
-    }
-
-    public List<AirPlane> getTakingOfPlanes() {
-        return takingOfPlanes;
-    }
-
-    public Simulation setTakingOfPlanes(List<AirPlane> takingOfPlanes) {
-        this.takingOfPlanes = takingOfPlanes;
-        return this;
-    }
-
-    public void addPlaneLanding(){
-        AirPlane airPlane = new AirPlane(false);
-        this.landingPlanes.add(airPlane);
-    }
-
-    public void addPlaneTakingOf(){
-        AirPlane airPlane = new AirPlane(false);
-        this.takingOfPlanes.add(airPlane);
-    }
 }
